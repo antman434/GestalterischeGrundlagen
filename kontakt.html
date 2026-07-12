@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÜBERMALEN — Ist Keine Straftat Online Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-section">
+                <span class="logo-heart">❤</span>
+                <div>
+                    <div class="logo-text">Übermalen<span>.</span></div>
+                </div>
+                <span class="logo-subtext">Ist keine Straftat</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="shop.html" id="nav-shop">Shop</a></li>
+                    <li><a href="philosophie.html" id="nav-philosophie">Philosophie</a></li>
+                    <li><a href="kontakt.html" id="nav-kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+            <button class="cart-icon-btn" onclick="toggleCart()">
+                 <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-subtitle">Schreib uns</div>
+        <h1 class="section-title">Kontakt<span>.</span></h1>
+
+        <section class="kontakt-grid">
+            <div>
+                <div class="kontakt-info-block">
+                    <h3>Allgemein</h3>
+                    <a href="mailto:hallo@uebermalen.de" class="kontakt-link">✉ hallo@uebermalen.de</a>
+                </div>
+
+                <div class="kontakt-info-block">
+                    <h3>Social Media</h3>
+                    <a href="https://instagram.com/uebermalen.projekt" target="_blank" class="kontakt-link"> HerzAmRechtenFleck@web.de</a>
+                </div>
+
+                <div class="kontakt-info-block">
+                    <h3>Presse & Kooperationen</h3>
+                    <p class="kontakt-text"> Für Presseanfragen, Schulprojekte, Ausstellungen oder Kooperationen wenden Sie sich bitte an uns. Wir freuen uns über jede Zusammenarbeit, die die Aufklärungsarbeit stärkt. </p>
+                    <a href="mailto:presse@uebermalen.de" class="kontakt-link" style="font-size:15px; color:var(--primary-color); margin-top:10px;">presse@uebermalen.de &rarr;</a>
+                </div>
+            </div>
+
+            <div>
+                <form onsubmit="event.preventDefault(); alert('Ihre Nachricht wurde erfolgreich gesendet!'); this.reset();">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Dein Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" class="form-control" placeholder="deine@email.de" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="betreff">Betreff</label>
+                        <select id="betreff" class="form-control">
+                            <option>Bestellung / Rückfrage</option>
+                            <option>Kooperation</option>
+                            <option>Presseanfrage</option>
+                            <option>Allgemeines</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nachricht">Nachricht</label>
+                        <textarea id="nachricht" class="form-control" placeholder="Deine Nachricht..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Nachricht Senden</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h2>Warenkorb</h2>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items load dynamically -->
+            <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Dein Warenkorb ist leer.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Gesamtsumme:</span>
+                <span id="cartTotal">0,00 €</span>
+            </div>
+            <button class="checkout-btn" onclick="alert('Vielen Dank für Ihre Bestellung!')">Zur Kasse</button>
+        </div>
+    </div>
+
+    <!-- Ticker Marquee -->
+    <div class="marquee-bar">
+        <div class="marquee-content">
+            <span>♥ ZIVILCOURAGE</span>
+            <span>• KEIN PLATZ FÜR HASS</span>
+            <span>• §303 STGB</span>
+            <span>• ÜBERMALEN IST KEINE STRAFTAT</span>
+            <span>• ZIVILCOURAGE</span>
+            <span>• KEIN PLATZ FÜR HASS</span>
+            <span>• §303 STGB</span>
+            <span>• ÜBERMALEN IST KEINE STRAFTAT</span>
+        </div>
+    </div>
+
+    <script>
+        // Shopping Cart Logic
+        let cart = JSON.parse(localStorage.getItem('uebermalen_cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('uebermalen_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartModal').classList.toggle('open');
+        }
+
+        function addToCart(name, price, sizeId) {
+            const sizeSelect = document.getElementById(sizeId);
+            const size = sizeSelect ? sizeSelect.value : 'Standard';
+            
+            const existingItem = cart.find(item => item.name === name && item.size === size);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ name, price, size, qty: 1 });
+            }
+            saveCart();
+            // Open cart to show user item was added
+            document.getElementById('cartModal').classList.add('open');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+        }
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            // Total quantity
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCount.textContent = totalQty;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 40px;">Dein Warenkorb ist leer.</p>';
+                cartTotal.textContent = '0,00 €';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>Größe: ${item.size} | Menge: ${item.qty}</p>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span class="cart-item-price">${itemTotal.toFixed(2).replace('.', ',')} €</span>
+                            <button class="remove-item" onclick="removeFromCart(${index})">&times;</button>
+                        </div>
+                    </div>
+                `;
+            });
+            cartItems.innerHTML = html;
+            cartTotal.textContent = total.toFixed(2).replace('.', ',') + ' €';
+        }
+
+        // Highlight active nav item
+        const currentFile = window.location.pathname.split("/").pop();
+        if (currentFile === "shop.html") document.getElementById('nav-shop')?.classList.add('active');
+        if (currentFile === "philosophie.html") document.getElementById('nav-philosophie')?.classList.add('active');
+        if (currentFile === "kontakt.html") document.getElementById('nav-kontakt')?.classList.add('active');
+
+        // Initial UI load
+        updateCartUI();
+    </script>
+</body>
+</html>
