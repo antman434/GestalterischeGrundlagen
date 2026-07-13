@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÜBERMALEN — Ist Keine Straftat Online Shop</title>
+    <title>MIT HERZ GEGEN RECHTS — Online Shop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo-section">
-                <span class="logo-heart">❤</span>
-                <div>
-                    <div class="logo-text">Übermalen<span>.</span></div>
+            <a href="index.html" class="logo-section" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <div style="font-family: sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1.1; font-size: 14px; color: #000000; letter-spacing: 0.5px;">
+                    Hass weicht,<br><span style="color: #7A1FA2; font-style: italic;">herz</span>
+                    bleibt <span style="color: #7A1FA2;">.</span>
                 </div>
-                <span class="logo-subtext">Ist keine Straftat</span>
+                <span style="color: #7A1FA2; font-size: 32px; line-height: 1;">❤</span>
             </a>
             <nav>
                 <ul>
@@ -34,7 +34,8 @@
         <section class="hero-section">
             <div class="hero-text-side">
                 <div class="tag-badge">❤ KEIN STRAFTATBESTAND • BGH 2023</div>
-                <h1 class="hero-title">Hab das Herz<br>am <span class="strike">rechten</span><br>Fleck.</h1>
+                <!-- Slogan mit lila und kursivem "Herz" -->
+                <h1 class="hero-title">Mit <span style="color: #7A1FA2; font-style: italic;">Herz</span><br>gegen Rechts.</h1>
                 <p class="hero-description">
                     Zivilcourage trägt man. Jedes Stück finanziert Aufklärungsarbeit gegen Rechtsextremismus in Deutschland.
                 </p>
@@ -44,7 +45,7 @@
                 </div>
             </div>
             <div class="hero-graphic-side">
-                <div class="big-heart">❤</div>
+                <div class="big-heart" style="color: #7A1FA2;">❤</div>
                 <div class="graphic-caption">
                     Farbe zeigen seit 2023<br><br>
                     <strong>Das Symbol der<br>Zivilcourage</strong>
@@ -65,7 +66,7 @@
                     <div>
                         <div class="product-image-placeholder">👕</div>
                         <div class="product-info">
-                            <h3>Übermalen Statement Shirt</h3>
+                            <h3>Hass weicht, Herz bleibt Statement Shirt</h3>
                             <div class="product-price">34,90 €</div>
                         </div>
                     </div>
@@ -119,21 +120,19 @@
         <div class="marquee-content">
             <span>♥ ZIVILCOURAGE</span>
             <span>• KEIN PLATZ FÜR HASS</span>
-            <span>• §303 STGB</span>
-            <span>• ÜBERMALEN IST KEINE STRAFTAT</span>
+            <span>• MIT HERZ GEGEN RECHTS</span>
             <span>• ZIVILCOURAGE</span>
             <span>• KEIN PLATZ FÜR HASS</span>
-            <span>• §303 STGB</span>
-            <span>• ÜBERMALEN IST KEINE STRAFTAT</span>
+            <span>• MIT HERZ GEGEN RECHTS</span>
         </div>
     </div>
 
     <script>
         // Shopping Cart Logic
-        let cart = JSON.parse(localStorage.getItem('uebermalen_cart')) || [];
+        let cart = JSON.parse(localStorage.getItem('mhgr_cart')) || [];
 
         function saveCart() {
-            localStorage.setItem('uebermalen_cart', JSON.stringify(cart));
+            localStorage.setItem('mhgr_cart', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -152,7 +151,6 @@
                 cart.push({ name, price, size, qty: 1 });
             }
             saveCart();
-            // Open cart to show user item was added
             document.getElementById('cartModal').classList.add('open');
         }
 
@@ -166,7 +164,6 @@
             const cartItems = document.getElementById('cartItems');
             const cartTotal = document.getElementById('cartTotal');
             
-            // Total quantity
             const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
             cartCount.textContent = totalQty;
 
@@ -198,13 +195,11 @@
             cartTotal.textContent = total.toFixed(2).replace('.', ',') + ' €';
         }
 
-        // Highlight active nav item
         const currentFile = window.location.pathname.split("/").pop();
         if (currentFile === "shop.html") document.getElementById('nav-shop')?.classList.add('active');
         if (currentFile === "philosophie.html") document.getElementById('nav-philosophie')?.classList.add('active');
         if (currentFile === "kontakt.html") document.getElementById('nav-kontakt')?.classList.add('active');
 
-        // Initial UI load
         updateCartUI();
     </script>
 </body>

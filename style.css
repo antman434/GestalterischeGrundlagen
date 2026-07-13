@@ -1,8 +1,8 @@
 /* CSS Stylesheet for Übermalen Online Shop */
 :root {
     --bg-color: #f7f4ee;
-    --primary-color: #7b3bf2;
-    --primary-light: #eaddff;
+    --primary-color: #7800b1;
+    --primary-light: #f5e0ff;
     --text-dark: #111116;
     --text-muted: #66666e;
     --border-color: #d1cbd4;
@@ -203,7 +203,7 @@ main {
 }
 
 .btn-primary:hover {
-    background-color: #6226cf;
+    background-color: #7800b1;
 }
 
 .btn-secondary {
@@ -459,7 +459,7 @@ textarea.form-control {
 }
 
 .btn-submit:hover {
-    background-color: #6226cf;
+    background-color: #7800b1;
 }
 
 /* Shop / Products */
