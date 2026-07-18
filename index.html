@@ -15,7 +15,7 @@
                     Hass weicht,<br><span style="color: #7A1FA2; font-style: italic;">herz</span>
                     bleibt <span style="color: #7A1FA2;">.</span>
                 </div>
-                <span style="color: #7A1FA2; font-size: 32px; line-height: 1;">❤</span>
+                <span style="color: #7A1FA2; font-size: 32px; line-height: 1;">❤&#xFE0E;</span>
             </a>
             <nav>
                 <ul>
@@ -33,7 +33,7 @@
     <main>
         <section class="hero-section">
             <div class="hero-text-side">
-                <div class="tag-badge">❤ KEIN STRAFTATBESTAND • BGH 2023</div>
+                <div class="tag-badge">❤&#xFE0E; KEIN STRAFTATBESTAND • BGH 2023</div>
                 <!-- Slogan mit lila und kursivem "Herz" -->
                 <h1 class="hero-title">Mit <span style="color: #7A1FA2; font-style: italic;">Herz</span><br>gegen Rechts.</h1>
                 <p class="hero-description">
@@ -64,30 +64,36 @@
             <div class="products-grid">
                 <div class="product-card">
                     <div>
-                        <div class="product-image-placeholder">👕</div>
+                        <div class="product-image-container">
+                            <img src="shirt.png" alt="Statement Shirt Mit Herz gegen Rechts" class="product-image">
+                        </div>
                         <div class="product-info">
-                            <h3>Hass weicht, Herz bleibt Statement Shirt</h3>
-                            <div class="product-price">34,90 €</div>
+                            <h3>Statement Shirt</h3>
+                            <div class="product-price">19,90 €</div>
                         </div>
                     </div>
                     <button class="btn-primary" onclick="window.location.href='shop.html'">Mehr entdecken</button>
                 </div>
                 <div class="product-card">
                     <div>
-                        <div class="product-image-placeholder">🧢</div>
-                        <div class="product-info">
-                            <h3>Zivilcourage Cap</h3>
-                            <div class="product-price">24,90 €</div>
+                        <div class="product-image-container">
+                            <img src="bag.png" alt="Jutebeutel Mit Herz gegen Rechts" class="product-image">
                         </div>
-                    </div>
-                    <button class="btn-primary" onclick="window.location.href='shop.html'">Mehr entdecken</button>
-                </div>
-                <div class="product-card">
-                    <div>
-                        <div class="product-image-placeholder">👜</div>
                         <div class="product-info">
-                            <h3>§303 StGB Stofftasche</h3>
+                            <h3>Jutebeutel</h3>
                             <div class="product-price">14,90 €</div>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="window.location.href='shop.html'">Mehr entdecken</button>
+                </div>
+                <div class="product-card">
+                    <div>
+                        <div class="product-image-container">
+                            <img src="sticker.png" alt="Sticker Mit Herz gegen Rechts" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <h3>Stickerset</h3>
+                            <div class="product-price">4,90 €</div>
                         </div>
                     </div>
                     <button class="btn-primary" onclick="window.location.href='shop.html'">Mehr entdecken</button>
@@ -118,7 +124,7 @@
     <!-- Ticker Marquee -->
     <div class="marquee-bar">
         <div class="marquee-content">
-            <span>♥ ZIVILCOURAGE</span>
+            <span>❤&#xFE0E; ZIVILCOURAGE</span>
             <span>• KEIN PLATZ FÜR HASS</span>
             <span>• MIT HERZ GEGEN RECHTS</span>
             <span>• ZIVILCOURAGE</span>
@@ -126,7 +132,30 @@
             <span>• MIT HERZ GEGEN RECHTS</span>
         </div>
     </div>
-
+<footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Wichtiger Hinweis</h3>
+                <p>
+                    Diese Webseite sowie der integrierte Online-Shop sind Bestandteil eines 
+                    <strong>satirischen und künstlerischen Projekts</strong>. Es findet kein realer Verkauf statt 
+                    und es wird kein kommerzieller Nutzen aus dieser Plattform gezogen. Alle Produkte, 
+                    Preise und Bestellprozesse sind rein fiktiv und dienen der kreativen Auseinandersetzung.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h3>Rechtliches</h3>
+                <a href="#impressum" >Impressum</a>
+                <a href="philosophie.html">Über das Projekt</a>
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p>&copy; 2026 MIT HERZ GEGEN RECHTS. Ein rein ideelles Kunstprojekt.</p>
+            </div>
+        </div>
+    </footer>
     <script>
         // Shopping Cart Logic
         let cart = JSON.parse(localStorage.getItem('mhgr_cart')) || [];
